@@ -9,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -46,6 +47,11 @@ public class UsuarioService {
         usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         return this.iUsuarioRepository.save(usuario);
     }
+
+    public Optional<Usuario> obterUsuarioId(Long usuarioId) {
+        return this.iUsuarioRepository.findById(usuarioId);
+    }
+
 
     public void excluirUsuario(Usuario usuario) {
         this.iUsuarioRepository.deleteById(usuario.getId());

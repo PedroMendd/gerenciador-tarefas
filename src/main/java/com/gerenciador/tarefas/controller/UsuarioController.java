@@ -29,7 +29,7 @@ public class UsuarioController {
 
         Usuario usuarioSalvo = usuarioService.salvarUsuario(usuario);
 
-        return new ResponseEntity<>("Novo usuário criado" + usuarioSalvo.getUsername(), HttpStatus.OK);
+        return new ResponseEntity<>("Novo usuário criado " + usuarioSalvo.getUsername(), HttpStatus.OK);
     }
 
     @GetMapping
